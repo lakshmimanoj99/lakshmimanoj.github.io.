@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Lakshmi Manoj, Ph.D. student in Industrial Engineering at the University of Illinois Urbana-Champaign, working on battery management systems.">
+<title>Lakshmi Manoj</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: single reading column (al-folio style) — sticky top nav, profile header with photo right, sections stacked below */
+:root{
+  --bg:#fbfcfc; --surface:#f1f4f5; --fg:#1b2427; --muted:#5b6a70; --line:#dde3e5;
+  --accent:#0f6e73; --accent-soft:#e1efef; --placeholder:#9a6b12; --placeholder-bg:#fbf3e2;
+  --display:"Newsreader",Georgia,"Times New Roman",serif;
+  --body:"IBM Plex Sans",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12181a; --surface:#1a2225; --fg:#e3eaec; --muted:#95a5aa; --line:#2a3538;
+  --accent:#5cc2c3; --accent-soft:#193234; --placeholder:#e3b458; --placeholder-bg:#2c2413; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12181a; --surface:#1a2225; --fg:#e3eaec; --muted:#95a5aa; --line:#2a3538;
+  --accent:#5cc2c3; --accent-soft:#193234; --placeholder:#e3b458; --placeholder-bg:#2c2413; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.65}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav-in{max-width:880px;margin:0 auto;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:1.15rem;color:var(--fg);font-weight:500}
+.brand b{font-weight:600}
+.links{display:flex;gap:20px;flex-wrap:wrap;font-size:.92rem}
+.links a{color:var(--muted)}
+.links a:hover{color:var(--accent);text-decoration:none}
+
+main{max-width:880px;margin:0 auto;padding-inline:16px;padding-block:40px 64px;display:flex;flex-direction:column;gap:56px}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 190px;gap:40px;align-items:start}
+.hero-text{min-width:0}
+h1{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,5vw,3rem);line-height:1.1;margin:0 0 6px;letter-spacing:-.01em}
+h1 b{font-weight:600}
+.role{color:var(--muted);margin:0 0 20px;font-size:.98rem}
+.hero p{margin:0 0 14px;max-width:65ch}
+.photo{display:flex;flex-direction:column;align-items:center;gap:14px}
+.avatar{width:190px;max-width:100%;aspect-ratio:4/5;border-radius:6px;background:var(--surface);border:1px dashed var(--line);display:grid;place-items:center;font-family:var(--display);font-size:3.4rem;color:var(--accent)}
+.socials{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.socials a{width:34px;height:34px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);color:var(--muted);font-family:var(--mono);font-size:.72rem;font-weight:500}
+.socials a:hover{color:var(--accent);border-color:var(--accent);text-decoration:none}
+.address{font-size:.85rem;color:var(--muted);text-align:center;line-height:1.5}
+
+.callout{background:var(--accent-soft);border-radius:6px;padding:14px 18px;font-size:.95rem}
+
+h2{font-family:var(--display);font-weight:500;font-size:1.7rem;margin:0 0 18px;display:flex;align-items:baseline;gap:12px}
+h2 small{font-family:var(--body);font-size:.8rem;color:var(--muted);font-weight:400}
+
+.ph{background:var(--placeholder-bg);color:var(--placeholder);font-family:var(--mono);font-size:.82em;padding:1px 6px;border-radius:3px;white-space:nowrap}
+
+.interests{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.interests li{display:grid;grid-template-columns:28px minmax(0,1fr);gap:6px}
+.interests .n{font-family:var(--mono);color:var(--accent);font-size:.9rem;padding-top:2px}
+.interests strong{font-weight:600}
+
+table.news{width:100%;border-collapse:collapse;font-size:.95rem}
+.news td{padding:12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.news td:first-child{width:120px;font-family:var(--mono);font-size:.82rem;color:var(--muted);padding-right:16px;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.pubs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:26px}
+.pub{display:grid;grid-template-columns:110px minmax(0,1fr);gap:20px}
+.badge{display:block;text-align:center;font-family:var(--mono);font-size:.74rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;background:var(--accent);color:var(--bg);padding:5px 6px;border-radius:3px}
+.pub-body{min-width:0}
+.badge.alt{background:var(--accent-soft);color:var(--accent)}
+h3.sub{font-family:var(--display);font-weight:500;font-size:1.3rem;margin:40px 0 18px;color:var(--muted)}
+.pub-title{font-weight:600;line-height:1.4;margin:0 0 4px}
+.authors{margin:0;font-size:.93rem;color:var(--muted)}
+.authors em{color:var(--fg);font-style:normal;text-decoration:underline;text-underline-offset:3px}
+.venue{margin:2px 0 8px;font-size:.93rem;font-style:italic;color:var(--muted)}
+.btns{display:flex;gap:8px;flex-wrap:wrap}
+.btns button{font:500 .72rem var(--mono);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--fg);border:1px solid var(--line);border-radius:3px;padding:3px 10px;cursor:pointer}
+.btns button:hover,.btns button[aria-expanded="true"]{border-color:var(--accent);color:var(--accent)}
+.abstract{margin-top:10px;font-size:.93rem;color:var(--muted);border-left:2px solid var(--line);padding-left:14px;max-width:70ch}
+
+.cv{display:grid;gap:14px}
+.cv-row{display:grid;grid-template-columns:120px minmax(0,1fr);gap:16px;font-size:.95rem}
+.cv-row .yr{font-family:var(--mono);font-size:.82rem;color:var(--muted);padding-top:2px}
+
+footer{border-top:1px solid var(--line);max-width:880px;margin:0 auto;padding-inline:16px;padding-block:20px 32px;font-size:.82rem;color:var(--muted)}
+
+@media (max-width:640px){
+  .hero{grid-template-columns:1fr;gap:24px}
+  .photo{order:-1;flex-direction:row;align-items:center;justify-content:flex-start;flex-wrap:wrap}
+  .avatar{width:110px;font-size:2.2rem}
+  .address{text-align:left}
+  .socials{justify-content:flex-start}
+  .pub{grid-template-columns:1fr;gap:8px}
+  .badge{display:inline-block;justify-self:start}
+  .cv-row{grid-template-columns:1fr;gap:2px}
+  .news td:first-child{width:92px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a class="brand" href="#about"><b>Lakshmi</b> Manoj</a>
+    <div class="links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#news">News</a>
+      <a href="#cv">CV</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="about">
+    <div class="hero-text">
+      <h1><b>Lakshmi</b> Manoj</h1>
+      <p class="role">Ph.D. Student · Industrial &amp; Enterprise Systems Engineering · University of Illinois Urbana-Champaign</p>
+      <p><strong>Hi, thanks for stopping by.</strong></p>
+      <p>I'm a Ph.D. student in the <a href="https://ise.illinois.edu/">Department of Industrial &amp; Enterprise Systems Engineering</a> at the <a href="https://illinois.edu/">University of Illinois Urbana-Champaign</a>, advised by <a href="https://ise.illinois.edu/directory/profile/pingfeng">Prof. Pingfeng Wang</a>. I also received my M.S. in Electrical &amp; Computer Engineering from UIUC in 2024, and before that worked on industrial anomaly detection at the Hong Kong Industrial Artificial Intelligence and Robotics Centre.</p>
+      <p>My research asks how a battery management system can stay <strong>resource-efficient, adaptive, and provably safe</strong> at the same time. Real BMS hardware runs on small microcontrollers and thin communication links, battery dynamics drift as cells age, and a safety-critical system can't explore its way into lithium plating or thermal runaway to learn a better policy. I build methods that handle all three together, from quantized state-of-health estimation on the edge to online learning with safety certificates, and up to guarantees that hold when many cells are coupled into a pack.</p>
+      <p>If you work on batteries, prognostics, or safe learning for cyber-physical systems, I'd be glad to hear from you.</p>
+    </div>
+    <aside class="photo">
+      <div class="avatar" role="img" aria-label="Photo placeholder">LM</div>
+      <div class="socials">
+        <a href="https://scholar.google.com/citations?user=4OxepL0AAAAJ&amp;hl=en" title="Google Scholar">GS</a>
+        <a href="https://www.linkedin.com/in/lakshmi-manoj-283007185/" title="LinkedIn">in</a>
+        <a href="#" title="GitHub — add your profile link">GH</a>
+      </div>
+      <div class="address">lakmanoj99@gmail.com<br>104 S. Mathews Ave.<br>Urbana, IL 61801</div>
+    </aside>
+  </section>
+
+  <section id="research">
+    <h2>Research Interests</h2>
+    <ul class="interests">
+      <li><span class="n">1</span><div><strong>Embedded &amp; quantized state estimation:</strong> state-of-health tracking with Kalman filters at 8, 16 and 32-bit precision for microcontroller BMS.</div></li>
+      <li><span class="n">2</span><div><strong>Edge-to-cloud battery telemetry:</strong> risk-aware, tiered packet quantization that spends bandwidth where it carries prognostic value.</div></li>
+      <li><span class="n">3</span><div><strong>Safe online learning:</strong> bandit-based charging and thermal strategy selection with adaptive safety certificates that tighten as cells age.</div></li>
+      <li><span class="n">4</span><div><strong>Federated battery health modeling:</strong> training Li-ion health models across fleets without sharing raw data, robust to drift and intermittent connectivity.</div></li>
+      <li><span class="n">5</span><div><strong>Composability of safety in coupled systems:</strong> when per-cell guarantees carry over to a pack, and when a single failure can spread to its neighbors.</div></li>
+    </ul>
+  </section>
+
+  <section id="news">
+    <h2>News <small>newest first</small></h2>
+    <table class="news">
+      <tbody>
+        <tr><td>2026</td><td>Paper on distributed battery prognostics with quantized edge encoding published at <strong>RAMS 2026</strong>.</td></tr>
+        <tr><td>2025</td><td>My first first-author paper, on quantized dual-EKF SOH estimation for resource-constrained BMS, published at <strong>RAMS 2025</strong>.</td></tr>
+        <tr><td>Jan 2025</td><td>Teaching Assistant for Mechatronics at UIUC, leading labs on PWM, ADC/DAC and SPI/I²C on the TI C2000.</td></tr>
+        <tr><td>Aug 2024</td><td>Started my Ph.D. in Industrial Engineering at UIUC with Prof. Pingfeng Wang.</td></tr>
+        <tr><td>May 2024</td><td>Completed my M.S. in Electrical &amp; Computer Engineering at UIUC.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="publications">
+    <h2>Publications <small><a href="https://scholar.google.com/citations?user=4OxepL0AAAAJ&amp;hl=en">Google Scholar</a></small></h2>
+    <ol class="pubs">
+      <li class="pub">
+        <span class="badge">RAMS</span>
+        <div class="pub-body">
+          <p class="pub-title">Distributed Battery Prognostics via Quantized Edge Encoding and Cloud-Based Feature Decoding</p>
+          <p class="authors"><em>Lakshmi Manoj</em> and Pingfeng Wang</p>
+          <p class="venue">Annual Reliability and Maintainability Symposium (RAMS), 2026</p>
+          <div class="btns"><button type="button" aria-expanded="false" data-t="a2">Summary</button></div>
+          <div class="abstract" id="a2" hidden>An on-board filter tracks state of health and feeds a health-risk score built from estimation confidence, degradation rate, filter surprise and fault probability. The score selects a telemetry tier, so the edge sends coarse quantized packets while the cell is healthy and richer ones as risk rises. A cloud-side multi-task model decodes features from those packets for prognostics.</div>
+        </div>
+      </li>
+      <li class="pub">
+        <span class="badge">RAMS</span>
+        <div class="pub-body">
+          <p class="pub-title">On-Board SOH Estimation Using Quantized Adaptive Dual Extended Kalman Filter in Resource-Constrained Battery Management Systems</p>
+          <p class="authors"><em>Lakshmi Manoj</em> and Pingfeng Wang</p>
+          <p class="venue">Annual Reliability and Maintainability Symposium (RAMS), 2025</p>
+          <div class="btns"><button type="button" aria-expanded="false" data-t="a3">Summary</button></div>
+          <div class="abstract" id="a3" hidden>A dual extended Kalman filter for battery state of health, reduced for microcontroller execution. A monotonic-fade prior keeps estimates consistent with electrochemical capacity loss, and the filter state is quantized to 8, 16 or 32 bits to measure the memory-accuracy trade-off on embedded hardware.</div>
+        </div>
+      </li>
+      <li class="pub">
+        <span class="badge">ICMA</span>
+        <div class="pub-body">
+          <p class="pub-title">Automatic Labeling in Image Segmentation and Classification for TFT-LCD Manufacturing</p>
+          <p class="authors">C. Liu, S. Vaassen, <em>L. Manoj</em>, X. Q. Zhan, C. Xu, S. R. Ajay, Z. Y. Lu, M. Wittstamm, et al.</p>
+          <p class="venue">IEEE International Conference on Mechatronics and Automation (ICMA), 2022</p>
+        </div>
+      </li>
+      <li class="pub">
+        <span class="badge">CPSL</span>
+        <div class="pub-body">
+          <p class="pub-title">Computer-Aided Assembly Sequence Planning for High-Mix Low-Volume Products in the Electronic Appliances Industry</p>
+          <p class="authors">M. Yao, B. Drescher, E. Stewart, <em>L. Manoj</em>, M. Wittstamm, L. Henke, et al.</p>
+          <p class="venue">Conference on Production Systems and Logistics (CPSL), 2022</p>
+        </div>
+      </li>
+    </ol>
+
+    <h3 class="sub">Ongoing Research</h3>
+    <ol class="pubs">
+      <li class="pub">
+        <span class="badge alt">Safety</span>
+        <div class="pub-body">
+          <p class="pub-title">Adaptive Safety Certificates for Safe-Optimal Battery Charging Protocol Selection</p>
+          <p class="authors"><em>Lakshmi Manoj</em> and Pingfeng Wang</p>
+          <div class="btns"><button type="button" aria-expanded="false" data-t="a1">Summary</button></div>
+          <div class="abstract" id="a1" hidden>Fast charging trades convenience against lithium plating, thermal runaway and accelerated degradation, and the best protocol shifts as a cell ages. This work pairs an Exp3 bandit learner with an ISS-grounded safety certificate that permanently bans protocols whose risk exceeds an adaptive threshold. Across 72 candidate protocols, the certificate pruned the pool to 66 and held the violation rate at zero for the final 1,200 of 1,500 batches.</div>
+        </div>
+      </li>
+      <li class="pub">
+        <span class="badge alt">Coupling</span>
+        <div class="pub-body">
+          <p class="pub-title">When Do Per-Cell Safety Guarantees Compose? Failure Propagation in Coupled Systems</p>
+          <p class="authors"><em>Lakshmi Manoj</em> and Pingfeng Wang</p>
+          <div class="btns"><button type="button" aria-expanded="false" data-t="a4">Summary</button></div>
+          <div class="abstract" id="a4" hidden>For passively coupled components such as cells linked by heat flow, small disturbances cannot cascade regardless of coupling strength. The real risk is a full component failure: a fold-bifurcation threshold k* predicts whether it drags a healthy neighbor down, matching detailed simulation to within half a percent. The same threshold predicts failure spread between steps of an AI agent pipeline.</div>
+        </div>
+      </li>
+      <li class="pub">
+        <span class="badge alt">Federated</span>
+        <div class="pub-body">
+          <p class="pub-title">Federated Learning for Distributed Battery Health Modeling</p>
+          <p class="authors"><em>Lakshmi Manoj</em> and Pingfeng Wang</p>
+          <div class="btns"><button type="button" aria-expanded="false" data-t="a5">Summary</button></div>
+          <div class="abstract" id="a5" hidden>A federated pipeline that trains Li-ion health models across clients without sharing raw cycling data. Training logs local–global drift and long-horizon stability to trigger retraining, and compressed, sanity-checked updates keep it robust under intermittent connectivity and heterogeneous client data.</div>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section id="cv">
+    <h2>CV</h2>
+    <div class="cv">
+      <div class="cv-row"><span class="yr">2024–now</span><div><strong>Ph.D., Industrial Engineering</strong><br>University of Illinois Urbana-Champaign · Advisor: Prof. Pingfeng Wang</div></div>
+      <div class="cv-row"><span class="yr">2022–2024</span><div><strong>M.S., Electrical &amp; Computer Engineering</strong><br>University of Illinois Urbana-Champaign · Control theory, mechatronics, resource-constrained ML</div></div>
+      <div class="cv-row"><span class="yr">2023–now</span><div><strong>Research Assistant</strong>, UIUC<br>SoC/SoH estimation with ECM (R₀+RC) and dual-EKF, validated on 200+ Arbin cycles; MiL validation harnesses</div></div>
+      <div class="cv-row"><span class="yr">Spring 2025</span><div><strong>Teaching Assistant, Mechatronics</strong>, UIUC</div></div>
+      <div class="cv-row"><span class="yr">2021–2022</span><div><strong>Researcher, AI and Robotics</strong><br>Hong Kong Industrial Artificial Intelligence and Robotics Centre</div></div>
+      <div class="cv-row"><span class="yr">Skills</span><div>MATLAB/Simulink, Python (PyTorch), C/C++, OPAL-RT SIL/HIL, TI C2000, CAN, SPI/I²C</div></div>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Lakshmi Manoj · Built with the al-folio layout, to be hosted on GitHub Pages.</footer>
+
+<script>
+document.querySelectorAll('.btns button').forEach(function(b){
+  b.addEventListener('click',function(){
+    var el=document.getElementById(b.dataset.t);
+    var open=el.hidden; el.hidden=!open; b.setAttribute('aria-expanded',String(open));
+  });
+});
+</script>
+</body>
+</html>
